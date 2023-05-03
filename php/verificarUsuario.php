@@ -22,7 +22,8 @@ if (mysqli_num_rows($result) == 1) {
     if ($senha === $usuario['senha']) {
         // usuário autenticado com sucesso, pode redirecionar para a página principal-
         $_SESSION['nome'] = $usuario['nome'];
-        header('Location: ../index.html');
+        $_SESSION['id_usuario'] = $usuario['id'];
+        header('Location: ../principal.php');
         exit;
     } else {
         // senha incorreta
